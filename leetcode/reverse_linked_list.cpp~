@@ -1,0 +1,19 @@
+class Solution {
+	public:
+		    ListNode* reverseList(ListNode* head) {
+			if(head == NULL || head->next == NULL)
+				return head;
+
+			ListNode* k = head, *p = head->next, *q = head->next->next;
+			while(q != NULL)
+			{
+				p->next = k;
+				k = p;
+				p = q;
+				q = q->next;
+				p->next = k;
+			}
+			p->next = k;
+			return p;
+
+};
