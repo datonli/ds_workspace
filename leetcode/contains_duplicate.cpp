@@ -1,0 +1,21 @@
+#include "common.h"
+
+class Solution {
+	public:
+		    bool containsDuplicate(vector<int>& nums) {
+			    	
+				map<int,int> mapint;
+				for(vector<int>::iterator it = nums.begin(); it != nums.end(); ++it)
+				{
+					if(mapint.find(*it) == mapint.end())
+					{
+						mapint[*it] = 1;
+					}
+					else
+						return true;
+				}			
+				return false;
+
+
+			        }
+};
