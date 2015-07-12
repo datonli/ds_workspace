@@ -18,7 +18,7 @@ class Solution {
 				}		
 				
 			}	
-			nums[++len] = nums[i];
+			nums[++len] = temp;
 			return ++len;			
 			        }
 };
