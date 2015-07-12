@@ -1,0 +1,18 @@
+
+
+
+class Solution {
+	public:
+		    vector<int> twoSum(vector<int>& nums, int target) {
+			sort(nums.begin(),nums.end());
+			vector<int> result;
+			vector<int>::iterator start = nums.begin(),end = nums.end();
+			while(*(end-1) > target) --end;
+			while(start != end)
+			{
+				int temp = *start + *(end-1);
+			}
+			return result;
+
+			        }
+};
