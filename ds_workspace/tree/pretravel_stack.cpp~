@@ -1,0 +1,6 @@
+#include "mytree.h"
+
+void preorder(Node * root)
+{
+
+}
