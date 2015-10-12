@@ -7,39 +7,21 @@ using namespace std;
 class Clearer {
 		public:
 		    vector<vector<int> > clearZero(vector<vector<int> > mat, int n) {
-				vector<int> row,col;
+				vector<int> row(n,0),col(n,0);
 				for(int i = 0; i < n; i ++)
 						for(int j = 0; j < n ; j ++){
 							if(mat[i][j] == 0){
-								row.push_back(i);
-								col.push_back(j);
+									row[i] = 1;
+									col[j] = 1;
 							}
 						}
-				sort(row.begin(),row.end());
-				sort(col.begin(),col.end());
-				cout << "begin : " ;
-				for(int i = 0; i < row.size(); i ++) cout << row[i] << " ";
-				cout << endl;
-				for(int i = 0; i < col.size(); i ++) cout << col[i] << " ";
-				cout << endl;
-				vector<int>::iterator it = unique(row.begin(),row.end());
-				row.erase(it,row.end());
-				it = unique(col.begin(),col.end());
-				col.erase(it,col.end());
-				cout << "after: " ;
-				for(int i = 0; i < row.size(); i ++) cout << row[i] << " ";
-				cout << endl;
-				for(int i = 0; i < col.size(); i ++) cout << col[i] << " ";
-				cout << endl;
-				for(int i = 0; i < row.size(); i ++)
-						for(int j = 0 ; j < n;j ++){
-							mat[row[i]][j] = 0;
-						}
-				for(int i = 0; i < n; i ++)
-						for(int j = 0 ; j < col.size();j ++){
-							mat[i][col[j]] = 0;
-						}
 
+				for(int i = 0; i < n; i ++)
+						for(int j = 0; j < n ; j ++){
+							if(row[i] || col[j]){
+									mat[i][j] = 0;
+							}
+						}
 				return mat;
 		    }
 };
